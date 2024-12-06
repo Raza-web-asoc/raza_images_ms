@@ -1,20 +1,22 @@
-# admin
-This microservice will be the admin functionalities
+# Admin Microservice
+
+This microservice will handle administrative functionalities.
 
 The functionalities included will be:
 
-  - Delete users
-  - Delete posts
-  - Reports
-      - Report chat
-      - Report posts
+- Delete users
+- Delete posts
+- Reports:
+    - Report chat
+    - Report posts
 
-Structure of the project [In progress]: 
+## Structure of the project [In progress]:
 
+```plaintext
 ├── app  # Contains the main application files.
-│   ├── __init__.py   # this file makes "app" a "Python package"
+│   ├── __init__.py   # This file makes "app" a Python package.
 │   ├── main.py       # Initializes the FastAPI application.
-│   ├── dependencies.py # Defines dependencies used by the routers
+│   ├── dependencies.py  # Defines dependencies used by the routers.
 │   ├── routers
 │   │   ├── __init__.py
 │   │   ├── items.py  # Defines routes and endpoints related to items.
@@ -33,12 +35,12 @@ Structure of the project [In progress]:
 │   │   └── user.py  # Defines database models for users.
 │   ├── external_services
 │   │   ├── __init__.py
-│   │   ├── email.py          # Defines functions for sending emails.
-│   │   └── notification.py   # Defines functions for sending notifications
+│   │   ├── email.py  # Defines functions for sending emails.
+│   │   └── notification.py  # Defines functions for sending notifications.
 │   └── utils
 │       ├── __init__.py
 │       ├── authentication.py  # Defines functions for authentication.
-│       └── validation.py      # Defines functions for validation.
+│       └── validation.py  # Defines functions for validation.
 ├── tests
 │   ├── __init__.py
 │   ├── test_main.py
