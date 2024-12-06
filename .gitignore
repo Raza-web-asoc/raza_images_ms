@@ -1,0 +1,12 @@
+# Node
+node_modules/
+package-lock.json
+
+# Env
+.env
+
+# idea
+.idea
+
+# Base de datos test
+database.sql
