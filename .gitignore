@@ -8,5 +8,5 @@ package-lock.json
 # idea
 .idea
 
-# Base de datos test
-database.sql
+
+**/__pycache__/
