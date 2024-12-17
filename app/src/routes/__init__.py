@@ -1,5 +1,5 @@
-from .user import router as users_router
-from .dog import router as dogs_router
-from .post import router as posts_router
+from .UserImage import router as users_router
+from .PetImage import router as pets_router
 
-__all__ = ["dogs_router", "users_router", "posts_router"]
+
+__all__ = [ "users_router", "pets_router"]

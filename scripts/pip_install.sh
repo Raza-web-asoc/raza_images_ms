@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
 pip install "$@"
-pip freeze > requirements.txt
-
-
+pip freeze >> requirements.txt
