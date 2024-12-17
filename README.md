@@ -1,14 +1,12 @@
-# Admin Microservice
+# Images microservice
 
-This microservice will handle administrative functionalities.
+This microservice will handle images of pets and users.
 
 The functionalities included will be:
 
-- Delete users
-- Delete posts
-- Reports:
-    - Report chat
-    - Report posts
+- Delete photos of users and pets
+- Update photos of users and pets
+  
 
 ## Structure of the project [In progress]:
 
