@@ -1,11 +1,42 @@
 version: "3.9"
 services:
-  app:
+  raza-images-ms:
     build: .
-    command: ["tail", "-f", "/dev/null"]
     ports:
-      - 8000:8000
+      - 8002:8000
+    container_name: raza-images-ms
     volumes:
       - .:/app
     env_file:
       - .env
+    depends_on:
+     raza-images-db:
+      condition: service_healthy
+    networks:
+      - autenticador_network
+
+  raza-images-db:
+    image: mysql:9.0
+    container_name: raza-images-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: raza_images_db
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - autenticador_network
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "raza-images-db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+networks:
+  autenticador_network:
+    external: true
+
+volumes:
+  mysql_data:

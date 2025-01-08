@@ -1,5 +1,5 @@
 from sqlalchemy import  Column, Integer
-from app.src.database.database import Base
+from app.src.database.base_class import Base
 import enum
 from datetime import datetime
 

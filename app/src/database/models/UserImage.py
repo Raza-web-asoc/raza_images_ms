@@ -1,9 +1,10 @@
-from sqlalchemy import Column, DateTime, Integer, String
-from app.src.database.database import Base
+from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.sql import func
+from app.src.database.base_class import Base
 
 class UserImage(Base):
-    __tablename__ = "UserImage"
-
-    idUser = Column(Integer, primary_key=True, index=True)
+    __tablename__ = 'UserImage'
+    
+    idUser = Column(Integer, primary_key=True, autoincrement=True)
     url = Column(String(255), nullable=False)
-    uploadDate = Column(DateTime, server_default="CURRENT_TIMESTAMP")
+    uploadDate = Column(DateTime, default=func.now())

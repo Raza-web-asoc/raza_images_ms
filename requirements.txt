@@ -67,8 +67,9 @@ typer==0.15.1
 typing_extensions==4.12.2
 ujson==5.10.0
 uritemplate==4.1.1
-urllib3==2.2.3
+urllib3
 uvicorn==0.32.1
 uvloop==0.21.0
 watchfiles==1.0.0
 websockets==14.1
+pyrebase4
