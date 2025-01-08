@@ -29,8 +29,8 @@ async def uploadUserImage(db: db_dependency, idUser: int = Form(...), file: Uplo
     
     return {"message": "Imagen subida"}
     
-@router.get("/get-user-image")
-async def getUserImageUrl(db: db_dependency, idUser: int):
+@router.post("/get-user-image")
+async def getUserImageUrl(db: db_dependency, idUser: int = Form(...)):
    
     user_image = db.query(UserImage).filter(UserImage.idUser == idUser).first()
 
