@@ -6,7 +6,20 @@ The functionalities included will be:
 
 - Delete photos of users and pets
 - Update photos of users and pets
-  
+
+# How to run the project
+
+First, You must create the env file, which you can find on the shared folder on google drive
+
+Second, You must create the internal network for the project, you can do it with the following command:
+
+- docker network create autenticador_network
+
+Last You must be at the root of the project and run the following command:
+
+- docker compose up
+
+```bash
 
 ## Structure of the project [In progress]:
 
