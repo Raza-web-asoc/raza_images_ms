@@ -10,8 +10,8 @@ services:
     env_file:
       - .env
     depends_on:
-     raza-images-db:
-      condition: service_healthy
+      raza-images-db:
+        condition: service_healthy
     networks:
       - autenticador_network
 
@@ -29,7 +29,7 @@ services:
       - autenticador_network
     restart: always
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "raza-images-db"]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 5s
       timeout: 5s
       retries: 5
