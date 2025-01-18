@@ -33,8 +33,8 @@ async def uploadPetImages(db: db_dependency, idPet: int = Form(...), files: List
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error uploading images: {str(e)}")
     
-@router.get("/get-pet-images")
-async def getPetImages(db: db_dependency, idPet: int):
+@router.post("/get-pet-images")
+async def getPetImages(db: db_dependency, idPet: int = Form(...)):
     try:
         
         images = db.query(PetGallery).filter(PetGallery.idPet == idPet).all()
