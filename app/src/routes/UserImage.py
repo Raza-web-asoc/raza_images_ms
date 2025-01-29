@@ -28,12 +28,13 @@ async def uploadUserImage(db: db_dependency, idUser: int = Form(...), file: Uplo
         raise HTTPException(status_code=400, detail=f"Databased failed: {str(e)}")
     
     return {"message": "Imagen subida"}
-    
-@router.post("/get-user-image")
-async def getUserImageUrl(db: db_dependency, idUser: int = Form(...)):
-   
-    user_image = db.query(UserImage).filter(UserImage.idUser == idUser).first()
 
+@router.get("/get-user-image")
+async def get_user_image_url(db:db_dependency, idUser: int = None):
+    if idUser is None:
+        raise HTTPException(status_code=400, detail="El parámetro idUser es requerido.")
+
+    user_image = db.query(UserImage).filter(UserImage.idUser == idUser).first()
 
     if not user_image:
         raise HTTPException(status_code=404, detail="Imagen no encontrada para el usuario especificado.")
