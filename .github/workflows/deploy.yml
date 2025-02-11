@@ -25,6 +25,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key sergiovargas5252@${{ secrets.VM_IP_IMAGE_MS }} << 'EOF'
             cd /home/sergiovargas5252/raza_images_ms
             git pull origin main
-            sudo docker compose build
-            sudo docker compose up -d
+            docker compose build
+            docker compose up -d
           EOF
