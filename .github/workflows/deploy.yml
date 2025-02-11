@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy on VM
         run: |
-          ssh -o StrictHostKeyChecking=no -i private_key usuario@${{ secrets.VM_IP_IMAGE_MS }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i private_key sergiovargas5252@${{ secrets.VM_IP_IMAGE_MS }} << 'EOF'
             cd /home/sergiovargas5252/raza_images_ms
             git pull origin main
             docker compose build
