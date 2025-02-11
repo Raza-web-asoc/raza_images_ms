@@ -1,0 +1,30 @@
+name: Deploy to VM
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [closed]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY_IMAGE_MS }}" > private_key
+          chmod 600 private_key
+
+      - name: Deploy on VM
+        run: |
+          ssh -o StrictHostKeyChecking=no -i private_key usuario@${{ secrets.VM_IP_IMAGE_MS }} << 'EOF'
+            cd /home/sergiovargas5252/raza_images_ms
+            git pull origin main
+            docker compose build
+            docker compose up -d
+          EOF
